@@ -7,4 +7,10 @@ This card utilizes Home Assistant's [Shell Command](https:/www.home-assistant.io
 
 # Installation
 
+
+1. [Remote machine](#remote-machine)  
+    1.1. [youtube-dl](#youtube-dl)  
+    1.2. [ssh](#ssh)
+2. [Home Assistant](#home-assistant)
+
 # Credits
