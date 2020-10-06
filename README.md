@@ -118,6 +118,7 @@ lla_token: >-
 |remote_ip| IP address of the remote machine | -
 |remote_user| Username of the account on the remote machine with passwordless access by SSH| -
 |lla_token| Long-Lived Access Token, generated in Profile, used by cURL to authenticate |-
+
 Since Long-Lived Access Tokens are quite long, they can be pasted after `>-` to become multiline arguments.
 
 That completes the installation process, enjoy the card!
