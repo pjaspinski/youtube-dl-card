@@ -18,7 +18,7 @@ This card requires several components to work properly. Here is an instruction o
 7. [Downloading card code](#downloading-card-code)  
 8. [Card configuration](#card-configuration)
 
-## 1. Remote machine
+## <a name="remote-machine"></a>1. Remote machine
 Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#card-configuration)).
 
 ## 2. youtube-dl configuration
@@ -102,7 +102,7 @@ Path should be set to `/local/` + path of the file in `www` folder, type to `Jav
 
 You should restart Home Assistant at this point
 
-## 8. Card configuration
+## <a name="card-configuration"></a>8. Card configuration
 Adding this card to Lovelace requires providing some data. Paste the following code in text editor and fill it with data according to the table below.
 ```yaml
 type: 'custom:youtube-dl-card'
