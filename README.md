@@ -9,16 +9,16 @@ This card utilizes Home Assistant's [Shell Command](https:/www.home-assistant.io
 
 This card requires several components to work properly. Here is an instruction on how to set it up:
 
-1. [Remote machine](#remote-machine)  
-2. [youtube-dl](#youtube-dl-configuration)  
-3. [SSH configuration](#ssh)
-4. [Script](#script)  
-5. [Shell Command](#shell-command)  
-6. [Communication Sensor](#communication-sensor)  
-7. [Downloading card code](#downloading-card-code)  
-8. [Card configuration](#card-configuration)
+1. [Remote machine](#1-remote-machine)  
+2. [youtube-dl](#2-youtube-dl-configuration)  
+3. [SSH configuration](#3-ssh)
+4. [Script](#4-script)  
+5. [Shell Command](#5-shell-command)  
+6. [Communication Sensor](#6-communication-sensor)  
+7. [Downloading card code](#7-downloading-card-code)  
+8. [Card configuration](#8-card-configuration)
 
-## <a name="remote-machine"></a>1. Remote machine
+## 1. Remote machine
 Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#card-configuration)).
 
 ## 2. youtube-dl configuration
@@ -102,7 +102,7 @@ Path should be set to `/local/` + path of the file in `www` folder, type to `Jav
 
 You should restart Home Assistant at this point
 
-## <a name="card-configuration"></a>8. Card configuration
+## 8. Card configuration
 Adding this card to Lovelace requires providing some data. Paste the following code in text editor and fill it with data according to the table below.
 ```yaml
 type: 'custom:youtube-dl-card'
@@ -126,3 +126,9 @@ Since Long-Lived Access Tokens are quite long, they can be pasted after `>-` to 
 That completes the installation process, enjoy the card!
 
 # Credits
+
+Big thanks to [michal7778](https://github.com/michal7778) and [wojtek14a](https://github.com/wojtek14a) - they got me interested in Home Assistant and helped with getting a basic idea of how such a card can be created.
+
+Shoutout to Siytek for creating this amazing guide called '[Home Assistant shell integration: Local & SSH Linux control](https://siytek.com/home-assistant-shell/)' - it was really helpful in the process of creating this card.
+
+Thank you - Home Assistant's community and creators of all software used in this project. It would not be possible without you!
