@@ -19,28 +19,30 @@ This card requires several components to work properly. Here is an instruction o
 8. [Card configuration](#card-configuration)
 
 ## 1. Remote machine
-Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant dockerized, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#card-configuration)).
+Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#card-configuration)).
 
 ## 2. youtube-dl configuration
-Install [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) on your remote machine. Since this card does not support passing arguments to youtube-dl command (for format selection etc.) they must be inserted in a config file.  
+Install [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) on your remote machine. Since this card does not support passing arguments to youtube-dl command (for format selection etc.) they must be inserted in a config file.
+
 If you use Linux and only plan on downloading videos from YouTube I recommend creating `/etc/youtube-dl.conf` file containing
 ```
 -f bestvideo+bestaudio/best
 -o path/%(title)s.%(ext)s
 ```
 where `path` should be replaced with location that you want to download videos to.  
+
 Please refer to [youtube-dl documentation](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#configuration) for more information about configuration and config file locations on other operating systems.   
 
 ## 3. SSH configuration
 This card requires passwordless access to the remote machine over SSH. You need access to the Home Assistant's terminal to set it up, so [SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) may come in handy.
 
-First enter the following command into the HA terminal.
+First enter the following command into the HA terminal:
 ```
 ssh-keygen
 ```
 All options should be skipped by pressing enter.
 
-After generating the key, it's time to add it to the remote machine. This can be done by executing the following command in the HA terminal.
+After generating the key, it's time to add it to the remote machine. This can be done by executing the following command in the HA terminal:
 ```
 ssh-copy-id username@ip
 ```
@@ -84,7 +86,7 @@ script:
 ```
 
 ## 6. Communication Sensor
-That is a sensor that the command is sending information about download result to (using [cURL](https:/curl.haxx.se/)).
+That is a sensor that receives information about download result (using [cURL](https:/curl.haxx.se/)).
 
 Add following code to your `configuration.yaml` file:
 ```yaml
