@@ -24,12 +24,12 @@ Your remote machine is the one that the card will download videos to. Most often
 ## 2. youtube-dl configuration
 Install [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) on your remote machine. Since this card does not support passing arguments to youtube-dl command (for format selection etc.) they must be inserted in a config file.
 
-If you use Linux and only plan on downloading videos from YouTube I recommend creating `/etc/youtube-dl.conf` file containing
+If you use Linux and want the best quality video and audio I recommend creating `/etc/youtube-dl.conf` file containing
 ```
 -f bestvideo+bestaudio/best
 -o path/%(title)s.%(ext)s
 ```
-where `path` should be replaced with location that you want to download videos to.  
+where `path` should be replaced with location that you want to download videos to. Installing [ffmpeg](https://ffmpeg.org/) is required with this settings, it handles merging video and audio files if they are separated (like in most YouTube videos).
 
 Please refer to [youtube-dl documentation](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#configuration) for more information about configuration and config file locations on other operating systems.   
 
