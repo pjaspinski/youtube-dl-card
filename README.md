@@ -3,7 +3,7 @@ This custom card for HomeAssistant lets you download videos with youtube-dl to a
 \
 ![](./preview.gif)
 ## How does it work?
-This card utilizes Home Assistant's [Shell Command](https:/www.home-assistant.io/integrations/shell_command/) integration to execute a [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) command on a remote machine using [SSH](https:/www.ssh.com/ssh/). Backwards communication is handled by posting information to Home Assistant's [REST API](https:/developers.home-assistant.io/docs/api/rest/) using [cURL](https:/curl.haxx.se/).
+This card utilizes Home Assistant's [Shell Command](https:/www.home-assistant.io/integrations/shell_command) integration to execute a [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) command on a remote machine using [SSH](https:/www.ssh.com/ssh). Backwards communication is handled by posting information to Home Assistant's [REST API](https:/developers.home-assistant.io/docs/api/rest) using [cURL](https:/curl.haxx.se).
 
 # Installation
 
@@ -29,7 +29,7 @@ If you use Linux and want the best quality video and audio I recommend creating 
 -f bestvideo+bestaudio/best
 -o path/%(title)s.%(ext)s
 ```
-where `path` should be replaced with location that you want to download videos to. Installing [ffmpeg](https://ffmpeg.org/) is required with this settings, it handles merging video and audio files if they are separated (like in most YouTube videos).
+where `path` should be replaced with location that you want to download videos to. Installing [FFmpeg](https://ffmpeg.org) is required with this settings, it handles merging video and audio files if they are separated (like in most YouTube videos).
 
 Please refer to [youtube-dl documentation](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#configuration) for more information about configuration and config file locations on other operating systems.   
 
@@ -86,7 +86,7 @@ script:
 ```
 
 ## 6. Communication Sensor
-That is a sensor that receives information about download result (using [cURL](https:/curl.haxx.se/)).
+That is a sensor that receives information about download result (using [cURL](https:/curl.haxx.se)).
 
 Add following code to your `configuration.yaml` file:
 ```yaml
@@ -129,6 +129,6 @@ That completes the installation process, enjoy the card!
 
 Big thanks to [michal7778](https://github.com/michal7778) and [wojtek14a](https://github.com/wojtek14a) - they got me interested in Home Assistant and helped with getting a basic idea of how such a card can be created.
 
-Shoutout to Siytek for creating this amazing guide called '[Home Assistant shell integration: Local & SSH Linux control](https://siytek.com/home-assistant-shell/)' - it was really helpful in the process of creating this card.
+Shoutout to Siytek for creating this amazing guide called '[Home Assistant shell integration: Local & SSH Linux control](https://siytek.com/home-assistant-shell)' - it was really helpful in the process of creating this card.
 
 Thank you - Home Assistant's community and creators of all software used in this project. It would not be possible without you!
