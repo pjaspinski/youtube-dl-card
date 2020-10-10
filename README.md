@@ -61,7 +61,7 @@ To allow this passwordless connection outside the terminal (in this case for com
 cp ~/.ssh/id_rsa ~/config/.ssh/id_rsa
 ```
 
-If you encounter any problems please refer to this [guide](https://siytek.com/home-assistant-shell/#Setup_SSH). It covers this configuration in much greater detail.
+If you encounter any problems please refer to this [guide](https://siytek.com/home-assistant-shell/#Setup_SSH). It covers this configuration in much greater detail (key's paths slightly differ between this instruction and the linked guide, you can provide your chosen path in [card configuration](#8-card-configuration)).
 
 ## 4. Shell Command
 Adding a shell command allows executing it by calling it as a service from a script.
@@ -81,7 +81,7 @@ script:
   youtube_dl_script:
     sequence:
         - service: shell_command.youtube_dl
-        data_template:
+          data_template:
             command: "{{ command }}"
 ```
 
@@ -91,9 +91,11 @@ That is a sensor that receives information about download result (using [cURL](h
 Add following code to your `configuration.yaml` file:
 ```yaml
 sensor:
-  youtube_dl_communication:
-    friendly_name: "youtube-dl-info"
-    value_template: ""
+  - platform: template
+    sensors:
+      youtube_dl_communication:
+        friendly_name: "youtube-dl-info"
+        value_template: ""
 ```
 ## 7. Downloading card code
 Download `youtube-dl-card.js` and place it somewhere in your `config/www/` folder.
@@ -103,25 +105,28 @@ Path should be set to `/local/` + path of the file in `www` folder, type to `Jav
 You should restart Home Assistant at this point
 
 ## 8. Card configuration
-Adding this card to Lovelace requires providing some data. Paste the following code in text editor and fill it with data according to the table below.
+Adding this card to Lovelace requires providing some data. Paste the following code in text editor and fill it with data according to the table below. You can edit default values by adding their keys to this configuration.
 ```yaml
 type: 'custom:youtube-dl-card'
-script: 
-sensor: 
 remote_user: 
 remote_ip: 
 lla_token: >-
 
 ```  
+
 | Name | Description | Default |
 |------|-------------|---------|
-|sensor| Name of the sensor created in point 4.|sensor.youtube_dl_communication|
-|script| Name of the script created in point 5.|script.youtube_dl_script|
 |remote_ip| IP address of the remote machine | -
 |remote_user| Username of the account on the remote machine with passwordless access by SSH| -
-|lla_token| Long-Lived Access Token, generated in Profile, used by cURL to authenticate |-
+|lla_token| Long-Lived Access Token, generated in Profile menu, used by cURL to authenticate ([learn more](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)) |-
+|sensor| Name of the sensor created in [section 4](#4-script)|sensor.youtube_dl_communication|
+|script| Name of the script created in [section 5](#5-shell-command)|script.youtube_dl_script|
+|yt-dl_path| Location of youtube-dl executable |/usr/local/bin/youtube-dl|
+|ssh_key_path| Location of SSH key ([section 3](#3-ssh))|~/config/.ssh/id_rsa|
+|ha_port| Port that your Home Assistant is available on |8123|
+|debug| Change to `true` to log executed commands to console (more in [section 9](#9-troubleshooting))| false |
 
-Since Long-Lived Access Tokens are quite long, they can be pasted after `>-` to become multiline arguments.
+Since Long-Lived Access Tokens are quite long, they can be pasted below `>-` to become multiline arguments.
 
 That completes the installation process, enjoy the card!
 
