@@ -19,7 +19,7 @@ This card requires several components to work properly. Here is an instruction o
 8. [Card configuration](#8-card-configuration)
 
 ## 1. Remote machine
-Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#card-configuration)).
+Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#8-card-configuration)).
 
 ## 2. youtube-dl configuration
 Install [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) on your remote machine. Since this card does not support passing arguments to youtube-dl command (for format selection etc.) they must be inserted in a config file.
