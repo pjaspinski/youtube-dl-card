@@ -31,19 +31,25 @@ If you use Linux and want the best quality video and audio I recommend creating 
 ```
 where `path` should be replaced with location that you want to download videos to. Installing [FFmpeg](https://ffmpeg.org) is required with this settings, it handles merging video and audio files if they are separated (like in most YouTube videos).
 
+If the path of your youtube-dl executable is different than `/usr/local/bin/youtube-dl` it must be added in [card configuration](#8-card-configuration). You can check this path by typing
+```bash
+which youtube-dl
+```
+in your remote machine's terminal.
+
 Please refer to [youtube-dl documentation](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#configuration) for more information about configuration and config file locations on other operating systems.   
 
 ## 3. SSH configuration
 This card requires passwordless access to the remote machine over SSH. You need access to the Home Assistant's terminal to set it up, so [SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) may come in handy.
 
 First enter the following command into the HA terminal:
-```
+```bash
 ssh-keygen
 ```
 All options should be skipped by pressing enter.
 
 After generating the key, it's time to add it to the remote machine. This can be done by executing the following command in the HA terminal:
-```
+```bash
 ssh-copy-id username@ip
 ```
 `username` must be replaced with one existing on the remote machine (you can create a new one for this sole purpose), `ip` must be replaced with the IP address of the remote machine.
@@ -51,13 +57,13 @@ ssh-copy-id username@ip
 Warning about the ECDSA key fingerprint can be dismissed by typing `yes`.
 
 After executing this command you should be able to connect to the remote machine using:
-```
+```bash
 ssh username@ip
 ```
 You should not be prompted for password.
 
 To allow this passwordless connection outside the terminal (in this case for commands executed by Shell Command) just copy the key to SSH config by typing:
-```
+```bash
 cp ~/.ssh/id_rsa ~/config/.ssh/id_rsa
 ```
 
