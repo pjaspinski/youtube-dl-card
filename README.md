@@ -11,9 +11,9 @@ This card requires several components to work properly. Here is an instruction o
 
 1. [Remote machine](#1-remote-machine)  
 2. [youtube-dl](#2-youtube-dl-configuration)  
-3. [SSH configuration](#3-ssh)
-4. [Script](#4-script)  
-5. [Shell Command](#5-shell-command)  
+3. [SSH configuration](#3-ssh-configuration)
+4. [Shell Command](#4-shell-command) 
+5. [Script](#5-script)  
 6. [Communication Sensor](#6-communication-sensor)  
 7. [Downloading card code](#7-downloading-card-code)  
 8. [Card configuration](#8-card-configuration)
@@ -126,10 +126,10 @@ lla_token: >-
 |remote_ip| IP address of the remote machine | -
 |remote_user| Username of the account on the remote machine with passwordless access by SSH| -
 |lla_token| Long-Lived Access Token, generated in Profile menu, used by cURL to authenticate ([learn more](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)) |-
-|sensor| Name of the sensor created in [section 4](#4-script)|sensor.youtube_dl_communication|
-|script| Name of the script created in [section 5](#5-shell-command)|script.youtube_dl_script|
+|sensor| Name of the sensor created in [section 4](#5-script)|sensor.youtube_dl_communication|
+|script| Name of the script created in [section 5](#4-shell-command)|script.youtube_dl_script|
 |yt_dl_path| Location of youtube-dl executable |/usr/local/bin/youtube-dl|
-|ssh_key_path| Location of SSH key ([section 3](#3-ssh))|~/config/.ssh/id_rsa|
+|ssh_key_path| Location of SSH key ([section 3](#3-ssh-configuration))|~/config/.ssh/id_rsa|
 |ha_port| Port that your Home Assistant is available on |8123|
 |debug| Change to `true` to log executed commands to console (more in [section 9](#9-troubleshooting))| false |
 
