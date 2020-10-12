@@ -64,7 +64,7 @@ class YoutubeDlCard extends LitElement  {
         if (!this._config.remote_user) throw new Error('Please define an username for ssh access to remote machine (remote_user).');
         if (!this._config.lla_token) throw new Error('Please define a Long-Lived Access Token (lla_token).');
         if (!this._config.sensor) this._config.sensor="sensor.youtube_dl_communication";
-        if (!this._config.script) throw new Error('Please define a script that should be executed on download (script).');
+        if (!this._config.script) this._config.script="script.youtube_dl_script";
         this.command_before_url = "(" + this.getCurlPostCommand("Downloading...") + " ; ssh -i /config/.ssh/id_rsa -o 'StrictHostKeyChecking=no' " +
             this._config.remote_user + '@' + this._config.remote_ip + " '/usr/sbin/youtube-dl ";
         this.command_after_url = "' && " + this.getCurlPostCommand("Download complete!") + " || " + this.getCurlPostCommand("Error!") +
