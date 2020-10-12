@@ -68,6 +68,7 @@ class YoutubeDlCard extends LitElement  {
         if (!this._config.yt_dl_path) this._config.yt_dl_path="/usr/local/bin/youtube-dl";
         if (!this._config.ssh_key_path) this._config.ssh_key_path="~/config/.ssh/id_rsa";
         if (!this._config.ha_port) this._config.ha_port="8123";
+        if (!this._config.debug) this._config.debug=false;
         this.command_before_url = "(" + this.getCurlPostCommand("Downloading...") + " ; ssh -i "+this._config.ssh_key_path+" -o 'StrictHostKeyChecking=no' " +
             this._config.remote_user + '@' + this._config.remote_ip + " '"+this._config.yt_dl_path+" ";
         this.command_after_url = "' && " + this.getCurlPostCommand("Download complete!") + " || " + this.getCurlPostCommand("Error!") +
@@ -97,6 +98,7 @@ class YoutubeDlCard extends LitElement  {
     onButtonClick() {
         this.disableButton = true;
         this.command = this.command_before_url + this.url + this.command_after_url;
+        if(this._config.debug) console.log("Youtube-DL card command output: \n"+this.command);
         this._hass.callService("script","turn_on",{
             entity_id: this._config.script, variables: {command: this.command}
         });
