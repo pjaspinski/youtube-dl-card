@@ -128,7 +128,7 @@ lla_token: >-
 |lla_token| Long-Lived Access Token, generated in Profile menu, used by cURL to authenticate ([learn more](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token)) |-
 |sensor| Name of the sensor created in [section 4](#4-script)|sensor.youtube_dl_communication|
 |script| Name of the script created in [section 5](#5-shell-command)|script.youtube_dl_script|
-|yt-dl_path| Location of youtube-dl executable |/usr/local/bin/youtube-dl|
+|yt_dl_path| Location of youtube-dl executable |/usr/local/bin/youtube-dl|
 |ssh_key_path| Location of SSH key ([section 3](#3-ssh))|~/config/.ssh/id_rsa|
 |ha_port| Port that your Home Assistant is available on |8123|
 |debug| Change to `true` to log executed commands to console (more in [section 9](#9-troubleshooting))| false |
