@@ -17,6 +17,7 @@ This card requires several components to work properly. Here is an instruction o
 6. [Communication Sensor](#6-communication-sensor)  
 7. [Downloading card code](#7-downloading-card-code)  
 8. [Card configuration](#8-card-configuration)
+9. [Troubleshooting](#9-troubleshooting)
 
 ## 1. Remote machine
 Your remote machine is the one that the card will download videos to. Most often it is a NAS. If you run Home Assistant in a container, you can use this card to download videos on a host system or a system in other container (just provide adequate ip address and/or port number in [card configuration](#8-card-configuration)).
@@ -135,6 +136,8 @@ lla_token: >-
 Since Long-Lived Access Tokens are quite long, they can be pasted below `>-` to become multiline arguments.
 
 That completes the installation process, enjoy the card!
+
+## 9. Troubleshooting
 
 # Credits
 
