@@ -3,7 +3,7 @@ This custom card for HomeAssistant lets you download videos with youtube-dl to a
 \
 ![](./preview.gif)
 ## How does it work?
-This card utilizes Home Assistant's [Shell Command](https:/www.home-assistant.io/integrations/shell_command) integration to execute a [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) command on a remote machine using [SSH](https:/www.ssh.com/ssh). Backwards communication is handled by posting information to Home Assistant's [REST API](https:/developers.home-assistant.io/docs/api/rest) using [cURL](https:/curl.haxx.se).
+This card utilizes Home Assistant's [Shell Command](https://home-assistant.io/integrations/shell_command) integration to execute a [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) command on a remote machine using [SSH](https://ssh.com/ssh). Backwards communication is handled by posting information to Home Assistant's [REST API](https://developers.home-assistant.io/docs/api/rest) using [cURL](https://curl.haxx.se).
 
 # Installation
 
@@ -93,7 +93,7 @@ script:
 ```
 
 ## 6. Communication Sensor
-That is a sensor that receives information about download result (using [cURL](https:/curl.haxx.se)).
+That is a sensor that receives information about download result (using [cURL](https://curl.haxx.se)).
 
 Add following code to your `configuration.yaml` file:
 ```yaml
@@ -138,6 +138,8 @@ Since Long-Lived Access Tokens are quite long, they can be pasted below `>-` to 
 That completes the installation process, enjoy the card!
 
 ## 9. Troubleshooting
+
+If you find yourself in a situation where you think that you set everything up correctly, but you get a `Error!` message after pressing a download button, enable `debug` in [card configuration](#8-card-configuration). It logs every command to the console before executing it. You can than copy that command and execute it in Home Assistant's terminal, where you will be able to see it's output and hopefully see what is wrong.
 
 # Credits
 
