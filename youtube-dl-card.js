@@ -67,6 +67,7 @@ class YoutubeDlCard extends LitElement  {
         if (!this._config.script) this._config.script="script.youtube_dl_script";
         if (!this._config.yt_dl_path) this._config.yt_dl_path="/usr/local/bin/youtube-dl";
         if (!this._config.ssh_key_path) this._config.ssh_key_path="~/config/.ssh/id_rsa";
+        if (!this._config.ha_port) this._config.ha_port="8123";
         this.command_before_url = "(" + this.getCurlPostCommand("Downloading...") + " ; ssh -i "+this._config.ssh_key_path+" -o 'StrictHostKeyChecking=no' " +
             this._config.remote_user + '@' + this._config.remote_ip + " '"+this._config.yt_dl_path+" ";
         this.command_after_url = "' && " + this.getCurlPostCommand("Download complete!") + " || " + this.getCurlPostCommand("Error!") +
@@ -75,7 +76,7 @@ class YoutubeDlCard extends LitElement  {
 
     getCurlPostCommand(state){
         return "curl -X POST -H 'Authorization: Bearer " + this._config.lla_token + 
-        "' -d '{ \\\"state\\\" : \\\"" + state + "\\\"}' http://localhost:8123/api/states/" + this._config.sensor;
+        "' -d '{ \\\"state\\\" : \\\"" + state + "\\\"}' http://localhost:"+this._config.ha_port+"/api/states/" + this._config.sensor;
     }
 
     set hass(hass) {
