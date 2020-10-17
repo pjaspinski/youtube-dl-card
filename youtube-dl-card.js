@@ -59,14 +59,14 @@ class YoutubeDlCard extends LitElement  {
     }
 
     setConfig(config) {
-        this._config = config;
+        this._config = Object.assign([],config);
         if (!this._config.remote_ip) throw new Error('Please define an ip address for ssh access to remote machine (remote_ip).');
         if (!this._config.remote_user) throw new Error('Please define an username for ssh access to remote machine (remote_user).');
         if (!this._config.lla_token) throw new Error('Please define a Long-Lived Access Token (lla_token).');
         if (!this._config.sensor) this._config.sensor="sensor.youtube_dl_communication";
         if (!this._config.script) this._config.script="script.youtube_dl_script";
         if (!this._config.yt_dl_path) this._config.yt_dl_path="/usr/local/bin/youtube-dl";
-        if (!this._config.ssh_key_path) this._config.ssh_key_path="~/config/.ssh/id_rsa";
+        if (!this._config.ssh_key_path) this._config.ssh_key_path="/config/.ssh/id_rsa";
         if (!this._config.ha_port) this._config.ha_port="8123";
         if (!this._config.debug) this._config.debug=false;
         this.command_before_url = "(" + this.getCurlPostCommand("Downloading...") + " ; ssh -i "+this._config.ssh_key_path+" -o 'StrictHostKeyChecking=no' " +
