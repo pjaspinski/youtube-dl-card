@@ -41,7 +41,7 @@ in your remote machine's terminal.
 Please refer to [youtube-dl documentation](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#configuration) for more information about configuration and config file locations on other operating systems.   
 
 ## 3. SSH configuration
-This card requires passwordless access to the remote machine over SSH. You need access to the Home Assistant's terminal to set it up, so [SSH & Web Terminal](https://github.com/hassio-addons/addon-ssh) may come in handy.
+This card requires passwordless access to the remote machine over SSH. You need access to the Home Assistant's terminal to set it up, so [Terminal & SSH](https://github.com/home-assistant/hassio-addons/tree/master/ssh) may come in handy.
 
 First enter the following command into the HA terminal:
 ```bash
@@ -129,7 +129,7 @@ lla_token: >-
 |sensor| Name of the sensor created in [section 4](#5-script)|sensor.youtube_dl_communication|
 |script| Name of the script created in [section 5](#4-shell-command)|script.youtube_dl_script|
 |yt_dl_path| Location of youtube-dl executable |/usr/local/bin/youtube-dl|
-|ssh_key_path| Location of SSH key ([section 3](#3-ssh-configuration))|~/config/.ssh/id_rsa|
+|ssh_key_path| Location of SSH key ([section 3](#3-ssh-configuration))|/config/.ssh/id_rsa|
 |ha_port| Port that your Home Assistant is available on |8123|
 |debug| Change to `true` to log executed commands to console (more in [section 9](#9-troubleshooting))| false |
 
