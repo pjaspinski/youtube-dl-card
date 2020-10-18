@@ -84,7 +84,7 @@ class YoutubeDlCard extends LitElement  {
         this._hass = hass;
         this.state = {
             returnedInfo: this._hass.states[this._config.sensor].state
-        }
+        };
         if(this.state.returnedInfo == "Download complete!" || this.state.returnedInfo == "Error!"){
             this.disableButton = false;
         }
@@ -98,7 +98,7 @@ class YoutubeDlCard extends LitElement  {
     onButtonClick() {
         this.disableButton = true;
         this.command = this.command_before_url + this.url + this.command_after_url;
-        if(this._config.debug) console.log("Youtube-DL card command output: \n"+this.command);
+        if(this._config.debug) console.log("Youtube-DL card command output: \n"+this.command.substring(1,this.command.length-3));
         this._hass.callService("script","turn_on",{
             entity_id: this._config.script, variables: {command: this.command}
         });
