@@ -141,6 +141,17 @@ That completes the installation process, enjoy the card!
 
 If you find yourself in a situation where you think that you set everything up correctly, but you get a `Error!` message after pressing a download button, enable `debug` in [card configuration](#8-card-configuration). It logs every command to the console before executing it. You can than copy that command and execute it in Home Assistant's terminal, where you will be able to see it's output and hopefully see what is wrong.
 
+You can also enable debugging for the shell command by adding this:
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.shell_command: debug
+```
+to your `configuration.yaml` file and than look for `Stderr` of this command in your Home Assistant's logs.
+
+If you find any bugs, feel free to add an issue in this repository.
+
 # Credits
 
 Big thanks to [michal7778](https://github.com/michal7778) and [wojtek14a](https://github.com/wojtek14a) - they got me interested in Home Assistant and helped with getting a basic idea of how such a card can be created.
