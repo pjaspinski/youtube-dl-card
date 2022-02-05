@@ -1,3 +1,5 @@
+**Important** Since shell commands executed from HomeAssistant are now limited to 60 seconds, downloading longer/higher resolution videos will fail. I'll try to figure out a workaround for this, so stay tuned. 
+
 # youtube-dl-card
 This custom card for HomeAssistant lets you download videos with youtube-dl to a remote machine with just one click (and one link paste).\
 \
